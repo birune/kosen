@@ -1,0 +1,91 @@
+exe1
+start >>> end >>> sum = 45
+//入力は5 10
+
+exe2
+day[2] : Tuesday
+day[3] : Wednesday
+day[5] : Friday
+day[6] : Saturday
+//入力は3 5 2 6
+
+exe3
+ave  =  32.6666666666667 
+ result:  80 58
+ 
+exe4
+CLUTTER_IM_MODULE:xim
+COLORTERM:truecolor
+DBUS_SESSION_BUS_ADDRESS:unix:path=/run/user/1001/bus
+DESKTOP_SESSION:ubuntu
+DISPLAY::0
+GDMSESSION:ubuntu
+GJS_DEBUG_OUTPUT:stderr
+GJS_DEBUG_TOPICS:JS ERROR;JS LOG
+GNOME_DESKTOP_SESSION_ID:this-is-deprecated
+GNOME_SHELL_SESSION_MODE:ubuntu
+GNOME_TERMINAL_SCREEN:/org/gnome/Terminal/screen/f7d4e501_7e5a_4a10_bcb9_a1d6bdb1885e
+GNOME_TERMINAL_SERVICE::1.79
+GPG_AGENT_INFO:/run/user/1001/gnupg/S.gpg-agent:0:1
+GTK_IM_MODULE:ibus
+GTK_MODULES:gail:atk-bridge
+HOME:/guest
+IM_CONFIG_PHASE:2
+LANG:ja_JP.UTF-8
+LOGNAME:guest
+OLDPWD:/guest
+PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PWD:/guest/kogai4d
+QT4_IM_MODULE:xim
+QT_ACCESSIBILITY:1
+QT_IM_MODULE:ibus
+SESSION_MANAGER:local/joko38:@/tmp/.ICE-unix/1252,unix/joko38:/tmp/.ICE-unix/1252
+SHELL:/bin/bash
+SHLVL:1
+SSH_AGENT_PID:1345
+SSH_AUTH_SOCK:/run/user/1001/keyring/ssh
+TERM:xterm-256color
+TEXTDOMAIN:im-config
+TEXTDOMAINDIR:/usr/share/locale/
+USER:guest
+USERNAME:guest
+VTE_VERSION:5202
+WINDOWPATH:2
+XAUTHORITY:/run/user/1001/gdm/Xauthority
+XDG_CONFIG_DIRS:/etc/xdg/xdg-ubuntu:/etc/xdg
+XDG_CURRENT_DESKTOP:ubuntu:GNOME
+XDG_DATA_DIRS:/usr/share/ubuntu:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+XDG_MENU_PREFIX:gnome-
+XDG_RUNTIME_DIR:/run/user/1001
+XDG_SEAT:seat0
+XDG_SESSION_DESKTOP:ubuntu
+XDG_SESSION_ID:2
+XDG_SESSION_TYPE:x11
+XDG_VTNR:2
+XMODIFIERS:@im=ibus
+_:/usr/bin/perl
+
+exe5
+/guest/kogai4d/count.png
+/guest/kogai4d/dir1
+/guest/kogai4d/dir2
+/guest/kogai4d/exe1.pl
+/guest/kogai4d/exe2.pl
+/guest/kogai4d/exe3.pl
+/guest/kogai4d/exe4.pl
+/guest/kogai4d/exe5.pl
+/guest/kogai4d/foreach.pl
+/guest/kogai4d/helloworld.pl
+/guest/kogai4d/result.txt
+/guest/kogai4d/st16d20-1.png
+/guest/kogai4d/st16d20.cgi
+/guest/kogai4d/st16d20_count.txt
+/guest/kogai4d/st16d20_thread.txt
+/guest/kogai4d/st26d20-2.png
+/guest/kogai4d/test.pl
+/guest/kogai4d/thread.png
+/guest/kogai4d/dir1/file1.txt
+/guest/kogai4d/dir1/file2.txt
+/guest/kogai4d/dir2/dir3
+/guest/kogai4d/dir2/file3.txt
+/guest/kogai4d/dir2/dir3/file4.txt
