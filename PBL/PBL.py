@@ -12,13 +12,6 @@ switch = 0#スイッチの状態を監視する変数
 mailFlag = 0#深夜のうちにスイッチが開いたことを保存する変数
 switchFlag = 0#スイッチが過去に開いたことがるかを保存する変数(wとaのどちらでファイルを開くかに使う)
 
-#smtpサーバにログインしたりなんだりする
-smtpobj = smtplib.SMTP("smtp.gmail.com", 587)
-smtpobj.ehlo()
-smtpobj.starttls()
-smtpobj.ehlo()
-smtpobj.login(from_address, password)
-
 #現在の時刻を格納する変数
 dt_now = datetime.datetime.now()
 
