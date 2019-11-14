@@ -3,14 +3,25 @@ import datetime
 import smtplib
 from email.mime.text import MIMEText
 from email.utils import formatdate
+import time
+import threading
+import myfunc as my
 
+#fromは高専では高専用アドレスじゃないとセキュリティ通らない
 from_address = ""
 password = ""
 to_address = ""
+#家:"smtp.gmail.com"
+#高専:""
+server = "smtp.gmail.com"
+#家:587
+#高専:
+port = 587
 
-switch = 0#スイッチの状態を監視する変数
+switch = [0, 0, 0, 0, 0]#スイッチの状態を監視する変数、switch[0]は[1~n]の合計を示す
 mailFlag = 0#深夜のうちにスイッチが開いたことを保存する変数
 switchFlag = 0#スイッチが過去に開いたことがるかを保存する変数(wとaのどちらでファイルを開くかに使う)
+refrigeOpening = 0#冷蔵庫が継続して開いていれば1
 
 #現在の時刻を格納する変数
 dt_now = datetime.datetime.now()
@@ -26,50 +37,26 @@ while 1:
     while dt_now.hour >=2 and dt_now.hour <= 5:
         time.sleep(1)
         dt_now = datetime.datetime.now()
-
         #print(dt_now.hour, "now 2-5")
+
+        switch[0] = my.switchSum(switch)
+
+        if switch[0] == 0:
+            refrigeOpening = 0 
+        if switch[0] == 1:
+            mailFlag =1
         #スイッチが開いているときのif文
-        if switch == 1:
-            mailFlag = 1
-            if switchFlag == 0:
-                f = open("mail.txt", "w")
-                switchFlag = 1
-            elif switchFlag == 1:
-                f = open("mail.txt", "a")
+            if refrigeOpening == 0:
+                refrigeOpening = 1
+                switchFlag = my.report(switch, switchFlag)
 
-            #ファイルへの書き込み
-            f.write(str(dt_now.year) + "年")
-            f.write(str(dt_now.month) + "月")
-            f.write(str(dt_now.day) + "日")
-            f.write(str(dt_now.hour) + "時")
-            f.write(str(dt_now.minute) + "分")
-            f.write(str(dt_now.second) + "秒に冷蔵庫が開きました。\n")
-
-            #ここら辺にブザーを鳴らす処理
-            #time.sleepの時間によってなる時間が変化する
+                #ブザーを鳴らす関数を並列処理
+                threadBuzzer = threading.Thread(target=my.buzzer)
+                threadBuzzer.start()
 
     
     if mailFlag == 1:
-        f = open("mail.txt", "r")
-        #messageにファイルの内容を入れる
-        message = f.read()
-        f.close
-
-        msg = MIMEText(message)#本文
-        msg["Subject"] = "refrigerator"#題
-        msg["To"] = to_address#受信者
-        msg["From"] = from_address#送信者
-        msg["Date"] = formatdate()#日付
-
-        #smtpサーバにログインしたりなんだりする
-        smtpobj = smtplib.SMTP("smtp.gmail.com", 587)
-        smtpobj.ehlo()
-        smtpobj.starttls()
-        smtpobj.ehlo()
-        smtpobj.login(from_address, password)
-        
-        #メールを送る
-        smtpobj.sendmail(from_address, to_address, msg.as_string())
-        smtpobj.close()
-
+        mailFlag = 0
+        my.mail(from_address, to_address, password, server, port)
+    
             
